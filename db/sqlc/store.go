@@ -3,10 +3,7 @@ package db
 import (
 	"context"
 	"database/sql"
-	"errors"
 	"fmt"
-
-	"golang.org/x/tools/go/analysis/passes/nilfunc"
 )
 
 type Store struct {
@@ -86,6 +83,8 @@ func (store *Store) TransferTx(ctx context.Context, arg TransferTxParams) (Trans
 		if err != nil {
 			return err
 		}
+
+		// todo: update account's banlance
 
 		return nil
 	})
